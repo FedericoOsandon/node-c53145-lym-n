@@ -1,0 +1,27 @@
+[
+	{
+		"username": "fedeosandon1",
+		"first_name": "fede",
+		"last_name": "Osandón",
+		"password": "123456",
+		"id": 1,
+		"contrasenia": "50df339381cdf84da537c20474712e41b579273cf368324dbb5832283003a0b5"
+	},
+	{
+		"username": "fedeosandon2",
+		"first_name": "fede",
+		"last_name": "Osandón",
+		"password": "123456",
+		"id": 2,
+		"contrasenia": "770819400c3d401fdc735c4af9c1678a915b7f6068f5ea763d84e906baa0fe8a"
+	},
+	{
+		"username": "fedeosandon3",
+		"first_name": "fede",
+		"last_name": "Osandón",
+		"password": "123456",
+		"id": 3,
+		"contrasenia": "a4c4c36c7e3e890226d586633d3ff426f99a19b582208109defab5557e101d8a",
+		"salt": "1Q0bRXRcMvNGXPP1+iHPjRBy9Z1Do2qd4p+78BMA12z5lh+4fW+qmnc/oS2zb57tRHjVpC+t0tkAjrxR3VzVd4fSL3MEkoDLM5J8Bcr/8nQHP1824bA4EFqFuPyYsVjwcE5JApoxgfiUebYxQRXOELO/IGtzR4xzVROn/u4QjQA="
+	}
+]
