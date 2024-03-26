@@ -16,20 +16,31 @@ class UserManager {
             return []
         }
     } 
-
-    crearUsuario = async usuario => {
+    // {username, password, email, nombre, apellido}
+    registerUsuario = async usuario => {
         try {
+            //leer archivo
             const users = await this.leerArchivo()
+
+            // validar de que no exista
+            const userFound = users.find(u => u.username === usuario.username)
+            if(!userFound) return 'ya existe este usuario'
+
+            // agregar id
             if(users.length === 0) {
                 usuario.id = 1
             } else {
                 usuario.id = users.length + 1
             }
+
+            // encriptar contraseña
             const salt  = crypto.randomBytes(128).toString('base64')
             const password =  crypto.createHmac('sha256', salt).update(usuario.password).digest('hex')
             usuario.contrasenia = password
             usuario.salt = salt
+            // agregar usuario al array
             users.push(usuario)
+            // escribir en el archivo
             await fs.promises.writeFile(this.path, JSON.stringify(users, null, '\t'), 'utf-8')
             return users     
             
@@ -37,7 +48,8 @@ class UserManager {
             console.log(error)
         }
     }
-    validarUsuario = async (username, password) => {
+    
+    loginUsuario = async (username, password) => {
         try {
             const users = await this.leerArchivo()
             const userIdx = users.findIndex(user => username === user.username)
@@ -60,9 +72,10 @@ class UserManager {
             console.log(error)
         }
     }
-
-
 }
+
+/////////////////////////////////////////////////////////
+
 const crearUser = async () => {
     const usuarios = new UserManager(path)
     
