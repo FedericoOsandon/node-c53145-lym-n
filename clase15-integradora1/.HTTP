@@ -1,0 +1,19 @@
+# Users
+GET http://localhost:8080/api/users
+
+###
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+    "first_name": "Federico",
+    "last_name": "Osandón",
+    "email": "f@gmail.com"
+}
+
+###
+GET http://localhost:8080/api/users/66304912cf171dd31fa01f5b
+###
+PUT http://localhost:8080/api/users/fjasldkfjaslñd
+###
+DELETE http://localhost:8080/api/users/fjasldkfjaslñd
