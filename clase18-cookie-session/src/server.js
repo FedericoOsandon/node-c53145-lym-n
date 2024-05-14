@@ -4,6 +4,10 @@ import usersRouter from './routes/users.router.js'
 import productsRouter from './routes/products.router.js'
 import cartsRouter from './routes/carts.router.js'
 import viewsRouter from './routes/views.router.js'
+import pruebasRouter from './routes/pruebas.router.js'
+import { sessionsRouter } from './routes/sessions.router.js'
+
+
 import { __dirname } from './utils.js'
 import { uploader } from './multer.js'
 // motor de plantilla
@@ -12,8 +16,11 @@ import { productsSocket } from './utils/productsSocket.js'
 // socket io
 import { Server as ServerIO } from 'socket.io'
 import { Server as ServerHttp } from 'http'
-
 import { connectDb } from './config/index.js'
+// cookie - sessions
+import cookieParser from 'cookie-parser'
+import session from 'express-session'
+
 
 const app = express()
 const httpServer = new ServerHttp(app)
@@ -24,6 +31,13 @@ const PORT = process.env.PORT || 8080
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 app.use(express.static(__dirname+'/public'))
+// pasamos los middleware
+app.use(cookieParser('s3cr3t@F1rma'))
+app.use(session({
+    secret: 's3cr3etC@d3r',
+    resave: true,
+    saveUninitialized: true
+}))
 
 connectDb()
 
@@ -49,10 +63,12 @@ app.use('/subir-archivo', uploader.single('myFile') ,(req, res) => {
 
 app.use('/', viewsRouter)
 
+app.use('/pruebas', pruebasRouter)
 app.use('/api/users', usersRouter)
 
 app.use('/api/products', productsRouter)
 app.use('/api/carts', cartsRouter)
+app.use('/api/sessions', sessionsRouter)
 
 app.use((error, req, res, next) => {
     console.log(error)
