@@ -1,0 +1,16 @@
+
+###
+POST http://localhost:8080/api/carts HTTP/1.1
+
+
+
+###
+GET http://localhost:4000/api/carts/63e2a1175e5458c702c90938 HTTP/1.1
+
+
+###
+GET http://localhost:4000/api/carts/empty-cart/63e2a1175e5458c702c90938 HTTP/1.1
+
+
+###
+GET http://localhost:4000/api/webchat

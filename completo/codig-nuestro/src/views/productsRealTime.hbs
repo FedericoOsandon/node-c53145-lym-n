@@ -1,0 +1,89 @@
+<div class="text-center">
+    <h1>Productos</h1>
+</div>
+<section class="container mt-5">
+    <div class="row w-100 d-flex justify-content-center align-item-center">
+        <div class="col-md-6 ">
+            <form id="product-form" class="form-control w-100" >
+                <label class="col-sm-2 col-form-label" for="name">Nombre:</label>
+                <input class="form-control form-control-lg" type="text" name="title" required>
+                <label class="col-sm-2 col-form-label" for="price">Precio:</label>
+                <input class="form-control form-control-lg" type="text" name="price" required>
+                <label class="col-sm-2 col-form-label" for="image">Imagen:</label>
+                <input class="form-control form-control-lg" type="text" name="image" required>
+                <label class="col-sm-2 col-form-label" for="price">Cantidad:</label>
+                <input class="form-control form-control-lg" type="text" name="stock" required>
+                {{!-- categoria --}}
+                <label class="col-sm-2 col-form-label" for="category">Categoria:</label>
+                <input class="form-control form-control-lg" type="text" name="category" required>
+                {{!-- descripcion --}}
+                <label class="col-sm-2 col-form-label" for="description">Descripción:</label>
+                <input class="form-control form-control-lg" type="text" name="description" required>
+                <button class="btn btn-outline-primary mt-3" type="submit">Agregar Producto</button>
+            </form>
+        </div>
+    </div>
+</section>
+<section>
+    {{!-- {{#if isAdmin}} --}}
+    {{#if true}}
+        <div class="justify-content-center align-item-center mt-5" id="products-list" style="display: flex; flex-direction: row; flex-wrap: wrap">        
+            
+        </div>    
+    {{else}}
+        <h2>Ud No tiene permisos necesarios para ver los productos</h2>
+    {{/if}}
+    {{!-- {{#if data.hasPrevPage}}
+            <a href="/api/products?page={{prevPage}}"><button>Anterior</button></a>
+    {{/if}}
+        <label> {{page}} </label>
+    {{#if data.hasNextPage}}
+            <a href="/api/products?page={{nextPage}}"><button>Siguiente</button></a>
+    {{/if}} --}}
+</section>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+        const socket = io()
+
+        socket.on('productsList', data =>{
+            let productsList = document.querySelector('#products-list')
+            let html=""
+            console.log(data)
+            if(data.length === 0) html='<h2>No hay produtos</h2>'
+            
+            data.forEach(product => {
+                html += `<div class="card m-4 col-3 shadow">`
+                html += `<div class="card-header">${product.title}</div>`
+                html += `<div class="card-body"><img src="${product.imageUrl}" class="w-100"></div>`
+                html += `<div class="card-footer"><button class="btn btn-outline-dark w-100">Detalle</button></div>`
+                html += `</div>`
+            
+            })
+            productsList.innerHTML = html
+        })
+
+        const form = document.querySelector('#product-form');
+    
+        form.addEventListener('submit', event => {
+            event.preventDefault()
+            const title = form.elements.title.value
+            const price = form.elements.price.value
+            const image = form.elements.image.value
+            const stock = form.elements.stock.value
+
+            const category = form.elements.category.value
+            const description = form.elements.description.value
+
+            // console.log({title, price, category})
+           
+            socket.emit('addProduct', { 
+                title, 
+                price,
+                thumbnail: image,
+                stock,
+                category,
+                description
+            })
+            form.reset()
+        })       
+</script>

@@ -1,0 +1,83 @@
+<div class="row">
+    <div class="col-6">
+        <div class="d-flex justify-content-center align-items-center">
+            <img src="{{this.product.imageUrl}}" class="w-75 m-5" alt="Image product">
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="align-items-center">
+            <h1 class="mt-5">Nombre: {{this.product.title}}</h1>
+            <h3>Precio: {{this.product.price}}</h3>
+            <h3>Descripción: {{this.product.description}}</h3>
+            <h3>Stock: {{this.product.stock}}</h3>
+        </div>
+        <form class="form-group w-50" id="agregarCarrito" >
+            <label for="cantidad" class="form-label w-100">Cantidad:</label>
+            <select class="mt-3  form-control-lg w-100">
+                <option value="1" selected>1 Producto</option>
+                <option value="2">2 Productos</option>
+                <option value="3">3 Productos</option>
+                <option value="4">4 Productos</option>
+                <option value="5">5 Productos</option>
+                <option value="6">6 Productos</option>
+            </select>
+            <br>
+            <button class="btn btn-outline-dark btn-lg mt-3 w-100">Agregar al carrito</button>
+        </form>
+        <div id="goToCart"></div>
+    </div>
+</div>
+
+<script>
+    const agregarCarrito = document.querySelector('#agregarCarrito')
+    //console.log(window.location.pathname)
+    agregarCarrito.addEventListener('submit', (e) => {
+        e.preventDefault()
+        const quantity = parseInt(agregarCarrito.querySelector('select').value)
+        //console.log(quantity)
+        const data = {
+            //id: "{{this.product._id}}",
+            quantity
+        }
+        //const carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+        //const carrito = []
+        //carrito.push(producto)
+        // sacar el cid de la ruta 
+        const pid = window.location.pathname.split('/')[2]
+        const cid = localStorage.getItem('cid')
+        console.log(`http://localhost:8080/api/carts/${cid}/product/${pid}` )
+        //console.log(`http://localhost:8080/api/carts/${cid}/product/${producto.id}`)
+        fetch(`http://localhost:8080/api/carts/${cid}/product/${pid}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+        .then(res => res.json())
+        .then(data => {
+            if(data.status === 'error') {
+                Toastify({
+                    text: data.message === 'No autorizado' ? 'Debes iniciar sesión para agregar productos al carrito' : data.message,
+                    duration: 2000,
+                    gravity: 'top',
+                    position: 'right',
+                }).showToast()
+                return
+            }
+            Toastify({
+                text: `SE agregó ${quantity} {{this.product.title}} al carrito!`,
+                duration: 2000,
+                gravity: 'top',
+                position: 'right',
+            }).showToast()
+            const goToCart = document.querySelector('#goToCart')
+            const cid = localStorage.getItem('cid') 
+            goToCart.innerHTML = `<a href="/carts/${cid}" class="btn btn-outline-dark btn-lg mt-3 w-50">Ir al carrito</a>`
+            agregarCarrito.reset()
+        })
+        .catch(err => console.log(err))
+        //localStorage.setItem('carrito', JSON.stringify(carrito));
+        
+    });
+</script>

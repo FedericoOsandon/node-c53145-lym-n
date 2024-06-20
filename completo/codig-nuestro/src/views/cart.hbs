@@ -1,0 +1,80 @@
+<center class="mt-5">
+    <h2>Carrito de compra</h2>
+</center>
+
+{{#if cart.products.length}} 
+
+    {{#each cart.products}}
+        <div>
+            <img src="{{this.product.imageUrl}}" class="m-5" alt="Image product" style="width: 10%;">
+            <label>Nombre: {{this.product.title}}</label>
+            <label>Precio: {{this.product.price}}</label>
+            <label>Cantidad: {{this.quantity}}</label>
+            <button class="btn btn-outline-danger" onclick="eliminarProduct('{{this.product._id}}')"><strong> X </strong></button>
+        </div>
+        <hr>
+            
+    {{/each}}
+    <button id="terminar-compra" class="btn btn-outline-success">Terminar compra</button>
+
+{{else}}
+    <center>
+        <p>No hay productos en el carrito  <a href="/">➡ Ir a comprar</a></p>
+    </center>
+    
+{{/if}}
+
+<script>
+    // funcion eliminarProduct con un fetch para eliminar que se ejecuta al hacer click en el boton
+    
+    //const eliminar = document.querySelector('#eliminar')
+    
+    function eliminarProduct(id) {
+        const cid = localStorage.getItem('cid')
+        fetch(`/api/carts/${cid}/product/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            window.location.reload()            
+        })
+    }
+    //eliminar.addEventListener('click', eliminarProduct)
+    
+
+    // generar ticket
+    const button = document.querySelector('#terminar-compra')
+    function generarTicket() {
+        console.log('generando ticket')
+        const cid = localStorage.getItem('cid')
+        
+        fetch(`/api/carts/${cid}/purchase`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if(data.status === 'success'){
+               Toastify({
+                    text: "Compra realizada con exito",
+                    duration: 3000,
+                    gravity: "top",
+                    position: 'right',
+                    backgroundColor: "linear-gradient(to right, #00b09b, #96c93d)",
+                    stopOnFocus: true,
+                }).showToast();
+               
+            }
+        })
+        
+        
+    }
+    
+    button.addEventListener('click', generarTicket)
+</script>

@@ -1,0 +1,78 @@
+<div class="text-center">
+    <h1>Productos</h1>
+</div>
+
+<section>
+    {{!-- {{#if isAdmin}} --}}
+    {{#if true}}
+        <div class="justify-content-center align-item-center mt-5" id="products-list" style="display: flex; flex-direction: row; flex-wrap: wrap">        
+            
+        </div>    
+    {{else}}
+        <h2>Ud No tiene permisos necesarios para ver los productos</h2>
+    {{/if}}
+    {{!-- {{#if data.hasPrevPage}}
+            <a href="/api/products?page={{prevPage}}"><button>Anterior</button></a>
+    {{/if}}
+        <label> {{page}} </label>
+    {{#if data.hasNextPage}}
+            <a href="/api/products?page={{nextPage}}"><button>Siguiente</button></a>
+    {{/if}} --}}
+</section>
+<script src="/socket.io/socket.io.js"></script>
+<script>       
+    let productsList = document.querySelector('#products-list')
+    let html=""
+    const products = []
+
+    
+    const getProducts = async () => {
+        const res = await fetch('/api/products')
+        const data = await res.json()
+        return data
+    }
+
+    const render = () => {
+        products.forEach(product => {
+            html += `
+            <div class="card m-4 col-3 shadow">
+                <div class="card-header">${product.title}</div>
+                <div class="card-body">
+                    <img src="${product.imageUrl}" class="card-image-top w-100">
+                    <p class="card-text">Nombre: ${product.title}</p>
+                    <p class="card-text">Categoría: ${product.category.toUpperCase()}</p>
+                    <p class="card-text">Precio: ${product.price}</p>
+                    <p class="card-text">Stock: ${product.stock}</p>
+                </div>
+                <div class="card-footer">
+                    <a href='/detalle/${product.id}' class="btn btn-outline-dark w-100">Detalle</a>
+                </div>
+            </div>`    
+        })
+        productsList.innerHTML = html
+    }
+
+
+    const renderProducts = async () => {
+        const data = await getProducts()
+        console.log(data.payload)
+        data.payload.forEach(product => {
+            products.push(product)
+        })
+        render()
+    }
+
+    renderProducts()
+    //if(products.length === 0) html='<h2>No hay produtos</h2>'
+    //
+    //products.forEach(product => {
+    //    html += `
+    //    <div class="card m-4 col-3 shadow">
+    //        <div class="card-header">${product.title}</div>
+    //        <div class="card-body"><img src="${product.imageUrl}" class="w-100"></div>
+    //        <div class="card-footer"><button class="btn btn-outline-dark w-100">Detalle</button></div>
+    //    </div>`    
+    //})
+    //productsList.innerHTML = html
+       
+</script>

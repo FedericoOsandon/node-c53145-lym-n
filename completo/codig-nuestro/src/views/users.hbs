@@ -1,0 +1,12 @@
+<div>
+    {{#each users}}
+        <p><strong>Nombre:</strong> {{this.first_name}} {{this.last_name}} - <strong>Email:</strong> {{this.email}}</p>
+    {{/each}}
+    {{#if hasPrevPage}}
+            <a href="/api/usuarios?page={{prevPage}}"><button>Anterior</button></a>
+    {{/if}}
+    <label> {{page}} </label>
+    {{#if hasNextPage}}
+            <a href="/api/usuarios?page={{nextPage}}"><button>Siguiente</button></a>
+    {{/if}}
+</div>

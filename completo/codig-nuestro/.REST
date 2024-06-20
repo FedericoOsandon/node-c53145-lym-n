@@ -1,0 +1,156 @@
+# _____________________ Poducts _______________________
+### GET products
+GET http://localhost:8080/api/productos HTTP/1.1
+
+### GET product
+GET http://localhost:8080/api/productos/63ee4d60980c8c9fafad39d6
+
+### POST product
+POST http://localhost:8080/api/productos HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Producto 1",
+    "price": 100,
+    "descripcion": "Descripcion del producto 1",
+    "category": "categoria 1",
+    "stock": 10,
+    "imageUrl": "https://cdn.palbincdn.com/users/31244/images/GORRA-BASICA-JUNIOR-CUSTOMIZASHOPBF10B-COLOR-ROSA-1611838353.jpg",
+    "code": "0006"
+}
+
+
+# ___________________  User ___________________________________________________________
+
+
+### GET users
+GET http://localhost:8080/api/usuarios
+
+### GET user
+GET http://localhost:8080/api/usuarios/63ee4d60980c8c9fafad39d6
+
+#### POST 
+
+
+### POST user
+POST http://localhost:8080/api/usuarios
+Content-Type: application/json
+
+{
+    "nombre": "Usuario 1",
+    "apellido": "Usuario 2"   
+}
+
+
+###
+GET http://localhost:8080/users/currentUser
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImZAZ21haWwuY29tIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2Nzk1OTkyMDd9.vVoR9Rz3Nw49pi231bWqED9YbXeT3_scX9VAkUlOcAU
+
+###
+POST http://localhost:8080/users/login
+Content-Type: application/json
+
+{
+    "email":"f@gmail.com",
+    "password": "fede"
+}
+
+### POST users premiun
+POST http://localhost:8080/api/usuarios/premiun/fede
+
+### POST users documents
+POST http://localhost:8080/api/usuarios/fede/documents
+
+// ORDENES______________________________________________________________________
+
+### GET 
+
+GET http://localhost:8080/api/orders HTTP/1.1
+### GET 
+
+GET http://localhost:8080/api/orders/640122de6e90ef0a5c7b6d9e HTTP/1.1
+
+###
+POST http://localhost:8080/api/orders/ HTTP/1.1
+Content-Type: application/json
+
+{
+    "user": "6410f7860ec6551e688cbb35",
+    "products": [{"product": "63ee4d60980c8c9fafad39d6"}],
+    "totalPrice": 15000,
+    "created": 1681860561
+}
+
+
+###
+GET http://localhost:8080/fork
+
+### CArrito______________________________________________________________________
+GET http://localhost:8080/api/carrito
+### CArrito
+post http://localhost:8080/api/carrito
+
+###
+GET http://localhost:8080/api/carrito/641219fd4cb810c19f619eb8
+
+
+### 
+PUT http://localhost:8080/api/carrito/64498a4126f819aa67c3bb4f/product/64498be6001c6034e155e3d5 HTTP/1.1
+Content-Type: application/json
+
+{
+    "quantity": 5     
+    
+}
+### 
+DELETE http://localhost:8080/api/carrito/641219fd4cb810c19f619eb8/product/63ee4d60980c8c9fafad39d6 HTTP/1.1
+
+
+###
+POST http://localhost:8080/api/carrito/641219fd4cb810c19f619eb8/purchase HTTP/1.1
+
+###
+POST http://localhost:8080/pruebas/register
+Content-Type: application/json
+
+{
+    "first_name": "Federico",
+    "last_name": "Gonzalez",
+    "email":"g@gmail.com",
+    "password": "fede"
+}
+###
+POST http://localhost:8080/pruebas/login
+Content-Type: application/json
+
+{
+    
+    "email":"g@gmail.com",
+    "password": "fede"
+}
+
+###
+GET http://localhost:8080/pruebas/test/user
+
+###
+GET http://localhost:8080/views/inicio
+
+###
+POST http://localhost:8080/api/session/forgot-password HTTP/1.1
+Content-Type: application/json
+
+{
+    "email":"f@gmail.com"
+}
+
+###
+GET http://localhost:8080/api/session/reset-password/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyIkX18iOnsiYWN0aXZlUGF0aHMiOnsicGF0aHMiOnsiZW1haWwiOiJpbml0IiwibGFzdF9uYW1lIjoiaW5pdCIsImZpcnN0X25hbWUiOiJpbml0Iiwicm9sZSI6ImluaXQiLCJfaWQiOiJpbml0IiwicGFzc3dvcmQiOiJpbml0IiwiX192IjoiaW5pdCJ9LCJzdGF0ZXMiOnsicmVxdWlyZSI6e30sImRlZmF1bHQiOnt9LCJpbml0Ijp7Il9pZCI6dHJ1ZSwiZmlyc3RfbmFtZSI6dHJ1ZSwibGFzdF9uYW1lIjp0cnVlLCJlbWFpbCI6dHJ1ZSwicGFzc3dvcmQiOnRydWUsInJvbGUiOnRydWUsIl9fdiI6dHJ1ZX19fSwic2tpcElkIjp0cnVlfSwiJGlzTmV3IjpmYWxzZSwiX2RvYyI6eyJfaWQiOiI2NDEwZjc4NjBlYzY1NTFlNjg4Y2JiMzUiLCJmaXJzdF9uYW1lIjoiRmVkZXJpY28iLCJsYXN0X25hbWUiOiJPc2FuZG9uIiwiZW1haWwiOiJmQGdtYWlsLmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJGJkOVRaajVHdHhEOVRCYzRGOEwyNi5qNXdBVDV2a1psVGxVbE9SWnpTRXJEdUtPclJaSlQyIiwicm9sZSI6InVzZXIiLCJfX3YiOjB9LCJpYXQiOjE2ODQyNTI3MDgsImV4cCI6MTY4NDI1NjMwOH0.xQUoRz0lDJHxauZZlMuDiTarDZos6iJjAe7f5jIE-tU
+
+####
+POST http://localhost:8080/api/session/login
+Content-Type: application/json
+
+{    
+    "email":"f@gmail.com",
+    "password": "fede123"
+}
