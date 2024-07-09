@@ -1,0 +1,62 @@
+<main>
+    <h1>Hola Bienvenidos al chat</h1>
+    <form action="/subir-archivo" method="post" enctype="multipart/form-data" >
+        <input type="file" name="myFile" id="myFile">
+        <input type="submit" value="Subir archivo">
+    </form>
+    <div>
+        <input type="text" name="chatBox" id="chatBox">
+    </div>
+    <div>
+        <ul id="messageLog"></ul>
+    </div>
+</main>
+<script src=" https://cdn.jsdelivr.net/npm/sweetalert2@11.7.1/dist/sweetalert2.all.min.js "></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    const socket = io()
+    let user
+    
+    //Swal.fire({
+    //    title: 'Hola coders',
+    //    text: "Alerta básica con SweetAlert2",
+    //    icon: 'success'
+    //})
+
+    Swal.fire({
+        title: 'Identifícate',
+        input: 'text',
+        text: 'Ingresa el usuario para identificarte en el chat',
+        inputValidator: value => {
+            return !value && 'Necesitas escribir un nombre de usuario para continuar'
+        },
+        allowOutsideClick: false
+    })
+    .then(result => {
+        user = result.value
+        console.log(user)
+    })
+
+    // input del chat
+    let chatBox = document.querySelector('#chatBox')
+    chatBox.addEventListener('keyup', evt => {
+        if(evt.key === 'Enter'){
+            if(chatBox.value.trim().length > 0 ){
+                socket.emit('message', { user, message: chatBox.value })
+                chatBox.value = ''
+            }
+        }
+
+    })
+
+    socket.on('messageLogs', data => {
+        //console.log('Mensajes del server', data)
+        let log = document.getElementById('messageLog')
+
+        let messages = ''
+        data.forEach(message => {
+            messages += `<li>${message.user} -  dice: ${message.message}</li><br>`
+        })
+        log.innerHTML = messages
+    })
+</script>

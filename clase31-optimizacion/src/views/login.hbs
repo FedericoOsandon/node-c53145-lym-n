@@ -1,0 +1,27 @@
+<main class="container">
+
+    <h1>Login</h1>
+    <form class="form-group w-50" id="form" action="/api/sessions/login" method="POST">
+        <label>Email</label>
+        <input type="email" name="email" class="form-control">
+        <label>Password</label>
+        <input type="text" name="password" class="form-control">
+        <button class="btn btn-outline-dark w-100 mt-3">Enviar</button>
+    </form>
+
+    <div>
+        <a class="btn btn-dark mt-5" href="/api/sessions/github">Github</a>
+    </div>
+</main>
+
+<script>
+    ///const form = document.querySelector('#form')
+    ///form.addEventListener('submit',async (evt)=>{
+    ///    evt.preventDefault()
+///
+    ///    const result = fetch('/api/sessions/login').then(res=> res.json())
+    ///    sessionStorage.setItem('token', result.token)
+    ///})
+
+    
+</script>

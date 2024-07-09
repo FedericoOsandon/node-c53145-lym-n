@@ -1,0 +1,32 @@
+<div>
+    <h1>Page de Users</h1>
+    {{#each users}}
+        <p>Nombre: {{this.first_name}} - {{this.last_name}}</p>
+        <p>Email:  {{this.email}}</p>
+        <hr>
+        <a href="/api/" onclick="agregarAlcarrito(cid, pid)">Agregar al carrito</button>
+    {{/each}}
+    <center>
+        {{#if hasPrevPage}}
+            <a href="/users?numPage={{prevPage}}">Anterior</a>
+        {{/if}}
+        <label>{{page}}</label>
+        {{#if hasNextPage}}
+            <a href="/users?numPage={{nextPage}}">Siguente</a>
+        {{/if}}
+    </center>
+</div>
+
+{{!-- <script>
+    // no va aqui. 
+    //fetch('/users', {
+    //    //method: 'get'
+    //    headers: {
+    //        "Content-Type": "aplication/json",
+    //        "Athorization": `Bearer ${sessionStorage.getItem('token')}`
+    //    }
+    //}) 
+</script>
+
+// fjs /api/carts/faslfdasldfasdfasdfasdf/products/pid
+// 
