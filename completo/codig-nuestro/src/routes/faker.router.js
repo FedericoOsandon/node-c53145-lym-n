@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
             payload: user
         })
     }catch(error){
-        console.log(error)
+        logger.info(error)
     }
 })
 

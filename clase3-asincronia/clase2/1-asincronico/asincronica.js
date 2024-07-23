@@ -1,6 +1,6 @@
 const escribirArchivo = require('./escrArch.js')
 
-console.log('inicio del programa')
+logger.info('inicio del programa')
 
 // el creador de esta funcion la definió
 // como no bloqueante. recibe un callback que
@@ -8,10 +8,10 @@ console.log('inicio del programa')
 
 
 escribirArchivo('hola mundo', () => {
-  console.log('terminé de escribir el archivo')
+  logger.info('terminé de escribir el archivo')
 })
 
-console.log('fin del programa')
+logger.info('fin del programa')
 
 // se mostrará por pantalla:
 // > inicio del programa
@@ -21,10 +21,10 @@ console.log('fin del programa')
 
 
 
-// console.log(1)
-// console.log(2)
+// logger.info(1)
+// logger.info(2)
 // setInterval(() => {
-//   console.log(3)
+//   logger.info(3)
 // },2000)
   
-// console.log(4)
+// logger.info(4)

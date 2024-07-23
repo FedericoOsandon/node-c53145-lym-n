@@ -11,20 +11,20 @@ export default class ProductController {
             
             res.send({status: 'success', payload: products})
         } catch (error) {
-            console.log(error)
+            logger.info(error)
         }
     }
 
     getProduct = async ( req, res ) => {
         try {
             const {pid} = req.params
-            console.log('pid',pid)
+            logger.info('pid',pid)
             const product = await this.service.getProduct(pid)
-            console.log('product: ', product)
+            logger.info('product: ', product)
             res.send({status: 'success', payload: product})
             
         } catch (error) {
-            console.log(error)
+            logger.info(error)
         }
     }
     // createProduct

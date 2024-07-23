@@ -18,18 +18,18 @@ let users = []
 // trae todos los usuarios
 // midd nivel router
 router.use((req, res, next)=>{
-    console.log(req.nombre)
+    logger.info(req.nombre)
     next()
 })
 // creación del midd req ,res next
 const middUno = (req, res, next) => {
     req.apellido = 'osandon'
-    console.log(req.apellido)
+    logger.info(req.apellido)
     next()
 }
 const middDos = (req, res, next) => {
     req.role = 'admin'
-    console.log(req.role)
+    logger.info(req.role)
     if (req.role === 'admin') {
         next()        
     }
@@ -46,9 +46,9 @@ router.get('/', middUno, middDos,async (req, res) => {
 
 // enpoint para crear un usuario
 router.post('/', (req, res) => {
-    console.log(req.body)
+    logger.info(req.body)
     const { first_name, last_name, email, password} = req.body
-    // console.log(first_name, last_name, email, password)
+    // logger.info(first_name, last_name, email, password)
     if(!email || !password) return res.send({status: 'error', error: 'faltan campos'})
 
     const newUser = {

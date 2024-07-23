@@ -13,7 +13,7 @@ router.get('/email', async (req, res) => {
             payload: 'Mensaje enviado'
         })
     } catch (error) {
-        console.log(error)
+        logger.info(error)
     }
 })
 
@@ -26,7 +26,7 @@ router.get('/sms', async (req,res)=>{
             payload: 'mensaje enviado'
         })
     } catch (error) {
-        console.log(error)
+        logger.info(error)
     }
 })
 

@@ -17,8 +17,8 @@ const PORT = process.env.PORT || 8080
 
 
 const httpServer = app.listen(PORT, error => {
-    if(error) console.log(error)
-    console.log('Server escuchando en el puerto 8080')
+    if(error) logger.info(error)
+    logger.info('Server escuchando en el puerto 8080')
 })
 // creamos el socket server
 const io = new Server(httpServer)
@@ -55,7 +55,7 @@ app.use('/', viewsRouter)
 // app.use('/api/products', productsRouter)
 
 app.use((error, req, res, next) => {
-    console.log(error)
+    logger.info(error)
     res.status(500).send('Error 500 en el server')
 })
 
@@ -63,10 +63,10 @@ let messages = [] // simular un db mock
 // manager chat - productos 
 // socketServer -> io 
 io.on('connection', socket => {
-    console.log('Cliente conectado')
+    logger.info('Cliente conectado')
 
     socket.on('message', data => {
-        console.log('message data: ', data)
+        logger.info('message data: ', data)
         // guardamos los mensajes
         messages.push(data)
         // emitimos los mensajes

@@ -10,7 +10,7 @@ export const generateToken = user => jwt.sign({user}, PRIVATE_KEY, {expiresIn: '
 
 export const authTokenMiddlerware = (req, res, next) => {
     const authHeader = req.headers.authorization
-    console.log(authHeader)
+    logger.info(authHeader)
     if(!authHeader) return res.status(401).send({status: 'error', error: 'Not authenticated'})
 
     const token = authHeader.split(' ')[1]

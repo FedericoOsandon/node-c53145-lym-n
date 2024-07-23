@@ -9,9 +9,9 @@ const cookieExtractor = req => {
     let token = null
     if (req && req.cookies) { // corroboramos que hay alguna cookie que tomar
         token = req.cookies['token'] // tomamos solo la cookie que necesitamos
-        // console.log('cookie extractor',req.cookies)
+        // logger.info('cookie extractor',req.cookies)
     }
-    // console.log('token: ', token)
+    // logger.info('token: ', token)
     return token
 }
 
@@ -21,7 +21,7 @@ const initializePassport = () => {
         secretOrKey: config.jwt_private_key, // Corrobora qeu sea el mimso secret que app.js
     }, async (jwt_payload, done) => {        
             try {
-                // console.log('jwt_payload', jwt_payload)
+                // logger.info('jwt_payload', jwt_payload)
                 return done(null, jwt_payload)
             } catch (error) {
                 return done(error)

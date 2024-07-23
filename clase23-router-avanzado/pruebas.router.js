@@ -11,7 +11,7 @@ router.param('word', async(req,res,next,word) => {
 // router.get('/params/:word([a-zA-Z%C3%A1%C3%A9]+)', (req, res) => {
 router.get('/params/:word([0-9]+)', (req, res) => {
     const {word} = req.params
-    console.log(req.word)
+    logger.info(req.word)
     res.send(word)
 })
 

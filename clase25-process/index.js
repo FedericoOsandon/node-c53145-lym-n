@@ -20,7 +20,7 @@ export const objectConfig = {
 }
 
 export const connectDb = async () => {
-    // console.log('base de datos conectada')
+    // logger.info('base de datos conectada')
     // connect(process.env.MONGO_URL)
     MongoSingleton.getInstance()
 }

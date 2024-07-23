@@ -1,5 +1,5 @@
 const generateUserErrorInfo = (user) => {
-    console.log(user)
+    logger.info(user)
     return `One or more propierties were incomplete or not valid.
     List of require propierties:
     *first_name: nedds to be a String, recived ${user.first_name}

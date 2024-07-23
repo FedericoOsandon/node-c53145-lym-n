@@ -31,7 +31,7 @@ router.use('*', async (req, res)=>{
 router.use(errorHandler)
 
 // router.use((err, req, res, next)=>{
-//     console.log(err)
+//     logger.info(err)
 //     res.status(500).send('Todo mal')
 // })
 

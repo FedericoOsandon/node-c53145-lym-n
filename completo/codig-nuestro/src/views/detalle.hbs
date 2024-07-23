@@ -30,11 +30,11 @@
 
 <script>
     const agregarCarrito = document.querySelector('#agregarCarrito')
-    //console.log(window.location.pathname)
+    //logger.info(window.location.pathname)
     agregarCarrito.addEventListener('submit', (e) => {
         e.preventDefault()
         const quantity = parseInt(agregarCarrito.querySelector('select').value)
-        //console.log(quantity)
+        //logger.info(quantity)
         const data = {
             //id: "{{this.product._id}}",
             quantity
@@ -45,8 +45,8 @@
         // sacar el cid de la ruta 
         const pid = window.location.pathname.split('/')[2]
         const cid = localStorage.getItem('cid')
-        console.log(`http://localhost:8080/api/carts/${cid}/product/${pid}` )
-        //console.log(`http://localhost:8080/api/carts/${cid}/product/${producto.id}`)
+        logger.info(`http://localhost:8080/api/carts/${cid}/product/${pid}` )
+        //logger.info(`http://localhost:8080/api/carts/${cid}/product/${producto.id}`)
         fetch(`http://localhost:8080/api/carts/${cid}/product/${pid}`, {
             method: 'PUT',
             headers: {
@@ -76,7 +76,7 @@
             goToCart.innerHTML = `<a href="/carts/${cid}" class="btn btn-outline-dark btn-lg mt-3 w-50">Ir al carrito</a>`
             agregarCarrito.reset()
         })
-        .catch(err => console.log(err))
+        .catch(err => logger.info(err))
         //localStorage.setItem('carrito', JSON.stringify(carrito));
         
     });

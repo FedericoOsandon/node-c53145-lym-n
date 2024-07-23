@@ -25,7 +25,7 @@ class ClassRouter {
                 // req, res, next
                 await callback.apply(this, params)
             } catch (error) {
-                console.log(error)
+                logger.info(error)
                 // params[1] hace referencia a la res, por ello puedo mandar un send desde éste
                 params[1].status(500).send(error)
             }
@@ -46,14 +46,14 @@ class ClassRouter {
         if (policies[0]==='PUBLIC') return next() // cualquiera puede entrar
         // const authHeaders = req.headers.authorization
         // const user = req.user
-        console.log('user', req.user)
+        logger.info('user', req.user)
         if(!req.user) return res.status(401).send({status: 'error', message: 'No autorizado'})
         // const token = authHeaders.split(" ")[1] // removemos en Bearer
         // // obtenemos el usuario a partir del toquen
         // let user = jwt.verify(token, 'CoderSecretClassRouter')
         // // El rod del usuario existe dentro del arrego de políticas
         // if(!policies.includes(req.user.role.toUpperCase())) return res.status(403).send({status: 'error', err: 'No permissions'})
-        // console.log(policies[0], req.user.role.toUpperCase())
+        // logger.info(policies[0], req.user.role.toUpperCase())
         if(!policies.includes(req.user.role.toUpperCase())) return res.status(403).send({status: 'error', message: 'No permissions'})
         // req.user = user
         next()
@@ -65,9 +65,9 @@ class ClassRouter {
                 if(err) return next(err)
                 // if(!user) return res.status(401).send({status: 'error', error: info.messages ? info.messages : info.toString()})
                 if(user) {
-                    // console.log('passportcall', user)
+                    // logger.info('passportcall', user)
                     req.user = user
-                    // console.log('user jwt', req.user)
+                    // logger.info('user jwt', req.user)
                 }
                 next()
             })(req, res, next)

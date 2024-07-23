@@ -11,13 +11,13 @@ class Persona {
     
     static especie = 'humano'
     saludar = () => {
-        console.log(`${this.nombre} a ${this.apellido} dice: Holaaa`)
+        logger.info(`${this.nombre} a ${this.apellido} dice: Holaaa`)
 
     }
 
     despedirse = () => {
 
-        console.log(`${this.nombre} ${this.apellido} dice Adeuuu`)
+        logger.info(`${this.nombre} ${this.apellido} dice Adeuuu`)
     }
     
 

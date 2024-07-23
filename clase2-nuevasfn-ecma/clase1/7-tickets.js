@@ -23,7 +23,7 @@ class TicketManager {
             
         }
         this.eventos.push(evento) 
-        console.log(this.eventos)
+        logger.info(this.eventos)
     } 
 
     agregarUsuario(eid, uid){
@@ -66,5 +66,5 @@ const ticketManager = new TicketManager()
 ticketManager.agregarEvento('fede', 'lugar', 1500)
 ticketManager.agregarEvento('fede', 'lugar', 1500)
 
-// console.log()
+// logger.info()
 

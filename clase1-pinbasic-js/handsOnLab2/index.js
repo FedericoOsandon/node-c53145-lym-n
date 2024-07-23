@@ -25,6 +25,6 @@ const contador1 = new Contador('Mauricio');
 contador1.contar();
 contador1.contar();
 const contador2 = new Contador('Julia');
-console.log(contador1.getCuentaIndividual())
-console.log(contador2.getCuentaGlobal())
+logger.info(contador1.getCuentaIndividual())
+logger.info(contador2.getCuentaGlobal())
 

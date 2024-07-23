@@ -45,7 +45,7 @@ class UserManager {
             return users     
             
         } catch (error) {
-            console.log(error)
+            logger.info(error)
         }
     }
     
@@ -69,7 +69,7 @@ class UserManager {
             
 
         } catch (error) {
-            console.log(error)
+            logger.info(error)
         }
     }
 }
@@ -79,7 +79,7 @@ class UserManager {
 const crearUser = async () => {
     const usuarios = new UserManager(path)
     
-    console.log(await usuarios.crearUsuario({
+    logger.info(await usuarios.crearUsuario({
         username: 'fedeosandon', 
         first_name: 'fede', 
         last_name: 'Osandón', 
@@ -93,4 +93,4 @@ const crearUser = async () => {
 const usuarios2 = new UserManager(path)
 
 usuarios2.validarUsuario('fedeosandon3', '123456')
-.then(users => console.log(users))
+.then(users => logger.info(users))

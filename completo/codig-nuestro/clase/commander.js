@@ -16,8 +16,8 @@ program
 
 program.parse() // parsea se utiliza para cerra la configuracion de los comandos
 
-console.log('Options: ', program.opts()) // muestra las opciones
-console.log('Remaining Arguments: ', program.args) // muestra los argumentos
+logger.info('Options: ', program.opts()) // muestra las opciones
+logger.info('Remaining Arguments: ', program.args) // muestra los argumentos
 
 // Comandos para ejecutar:
 // node commander.js -d -p 3000 --mode development -u root --letters a b c

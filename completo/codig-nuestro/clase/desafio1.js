@@ -4,7 +4,7 @@ function listNumbers(...numbers) {
       console.error(`Invalid parameters: ${types}`);
       process.exitCode = -4;
     } else {
-      console.log(numbers);
+      logger.info(numbers);
     }
   }
   

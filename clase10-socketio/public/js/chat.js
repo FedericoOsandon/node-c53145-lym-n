@@ -1,19 +1,19 @@
-// console.log('Bienvenidos al chat')
+// logger.info('Bienvenidos al chat')
 
 const socket = io()
 // ejemplo en clase
 // socket.emit('message', 'esto es data en forma de string')
 
 // socket.on('socket_individual', data => {
-//     console.log(data)
+//     logger.info(data)
 // })
 
 
 // socket.on('para_todos_menos_el_actual', data => {
-//     console.log(data)
+//     logger.info(data)
 // })
 // socket.on('eventos_para_todo', data => {
-//     console.log(data)
+//     logger.info(data)
 // })
 
 
@@ -29,5 +29,5 @@ input.addEventListener('keyup', evt => {
 })
 // manager create get
 socket.on('messages_server', data => {
-    console.log(data)
+    logger.info(data)
 })

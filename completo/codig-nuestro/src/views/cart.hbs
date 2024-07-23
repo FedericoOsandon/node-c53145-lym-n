@@ -48,7 +48,7 @@
     // generar ticket
     const button = document.querySelector('#terminar-compra')
     function generarTicket() {
-        console.log('generando ticket')
+        logger.info('generando ticket')
         const cid = localStorage.getItem('cid')
         
         fetch(`/api/carts/${cid}/purchase`, {
@@ -59,7 +59,7 @@
         })
         .then(res => res.json())
         .then(data => {
-            console.log(data)
+            logger.info(data)
             if(data.status === 'success'){
                Toastify({
                     text: "Compra realizada con exito",

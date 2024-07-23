@@ -40,10 +40,10 @@ router.get('/', (req, res) => {
 //     const { socketServer } = req
 
 //     socketServer.on('connection', socket => {
-//         console.log('nuevo cliete conectado')
+//         logger.info('nuevo cliete conectado')
     
 //         // socket.on('message', data => {
-//         //     console.log(data)
+//         //     logger.info(data)
 //         // })
     
 //         // socket.emit('socket_individual', 'Este mensaje lo debe ecibir este los socket')
@@ -57,7 +57,7 @@ router.get('/', (req, res) => {
 //         // enviar mensajes viejos
     
 //         socket.on('mensaje_cliente', data => {
-//             console.log(data)
+//             logger.info(data)
     
 //             messages.push({id: socket.id, messge: data})
             

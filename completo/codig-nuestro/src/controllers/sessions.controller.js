@@ -19,7 +19,7 @@ class AuthController {
             if (exists) return res.status(401).send({status: 'error', message: 'El usuario ya existe'})
 
             let cart = await cartService.createCart(email)
-            // console.log(cart)
+            // logger.info(cart)
             const hashedPassword = createHash(password)
 
             const newUser = {

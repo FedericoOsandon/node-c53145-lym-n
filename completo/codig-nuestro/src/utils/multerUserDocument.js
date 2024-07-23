@@ -9,7 +9,7 @@ const { dirname } = require('path')
 //         cb(null, `${dirname(__dirname)}/public/uploads`)
 //     },
 //     filename: function(req, file, cb) {
-//         console.log('file: ',file)
+//         logger.info('file: ',file)
 //         cb(null, `${Date.now()}-${file.originalname}`)        
 //     }
 // })
@@ -57,7 +57,7 @@ const uploaderUser = multer({
     //     }
     //   },
     onError: function(err,next){
-        console.log(err)
+        logger.info(err)
         next()
     }
 })

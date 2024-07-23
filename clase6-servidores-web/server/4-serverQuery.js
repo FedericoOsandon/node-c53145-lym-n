@@ -19,7 +19,7 @@ const users = [ // una base de dato
 // })
 
 app.get('/users', (req, res) => {
-    // console.log( req.query)
+    // logger.info( req.query)
 
     const { genero, nombre } = req.query
 
@@ -32,5 +32,5 @@ app.get('/users', (req, res) => {
 
 
 app.listen(8080, error => {
-    console.log('Escuchando el puerto 8080')
+    logger.info('Escuchando el puerto 8080')
 })

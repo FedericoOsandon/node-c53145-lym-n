@@ -11,7 +11,7 @@ sessionsRouter.post('/register', passport.authenticate('register', {failureRedir
     res.send({status: 'success', message: 'User Registrado'})
 })
 sessionsRouter.post('/failregister', async (req, res) => {
-    console.log('falló la estrategia')
+    logger.info('falló la estrategia')
     res.send({error: 'failed'})
 })
 

@@ -5,7 +5,7 @@ import { __dirname } from './utils.js'
 import { uploader } from './multer.js'
 const app = express()
 
-// console.log(import.meta.url)
+// logger.info(import.meta.url)
 
 // para poder leer los json
 app.use(express.json())
@@ -18,8 +18,8 @@ app.use(express.static(__dirname+'/public'))
 
 // app.use((req, res, next)=> {
 //     req.nombre = 'fede'
-//     console.log('Tiempo: ', Date())
-//     console.log('saludando desde el middleware')
+//     logger.info('Tiempo: ', Date())
+//     logger.info('saludando desde el middleware')
 //     next()
 // })
 
@@ -37,11 +37,11 @@ app.use('/api/users', usersRouter)
 app.use('/api/products', productsRouter)
 
 app.use((error, req, res, next) => {
-    console.log(error)
+    logger.info(error)
     res.status(500).send('Error 500 en el server')
 })
 
 app.listen(8080, error => {
-    if(error) console.log(error)
-    console.log('Server escuchando en el puerto 8080')
+    if(error) logger.info(error)
+    logger.info('Server escuchando en el puerto 8080')
 })

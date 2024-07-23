@@ -14,7 +14,7 @@ class UserController {
             const users = await this.userService.getUsers()                 
             res.send(users)            
         } catch (error) {
-            console.log(error)
+            logger.info(error)
         }
     }
 

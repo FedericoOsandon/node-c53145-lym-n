@@ -17,7 +17,7 @@ export const initializePassport = () => {
                 // verificar si existe el usuario
                 let userFound = await userService.getUserBy({email: username})
                 if(userFound) {
-                    console.log('el usuario ya existe')
+                    logger.info('el usuario ya existe')
                     return done(null, false)
                 }
                 // crear el uusario 
@@ -41,7 +41,7 @@ export const initializePassport = () => {
         try {
             const user = await userService.getUserBy({email: username})
             if(!user) {
-                console.log('usuario no encontrado')
+                logger.info('usuario no encontrado')
                 return done(null, false)
             }
             if(!isValidPAssword(password, {password: user.password})) return done(null, false)

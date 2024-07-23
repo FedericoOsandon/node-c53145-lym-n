@@ -6,7 +6,7 @@ class OrdersController {
             let orders = await orderService.getOrders()
             res.status(200).send(orders)
         } catch (error) {
-            console.log(error)
+            logger.info(error)
         }
     }
     async getOrder(req,res){
@@ -69,13 +69,13 @@ class OrdersController {
     // async createOrder(req, res){
     //     try {
     //         const {body} = req
-    //         console.log(body)
+    //         logger.info(body)
     //         const resp = await orderService.ceateOrder(body)
-    //         console.log(resp)
+    //         logger.info(resp)
     //         res.send(resp)
             
     //     } catch (error) {
-    //         console.log(error)
+    //         logger.info(error)
     //     }
     // }
     updateOrder(){}

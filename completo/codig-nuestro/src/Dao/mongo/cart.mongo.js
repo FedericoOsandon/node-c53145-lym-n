@@ -9,7 +9,7 @@ class CartDaoMongo{
 
     getBy = async (cid) => {                 
         const res = await this.Cart.findOne({_id: cid}).lean()
-        // console.log('cart mongo: ',JSON.stringify(res.products, null, 2))
+        // logger.info('cart mongo: ',JSON.stringify(res.products, null, 2))
         return res      
     }
 

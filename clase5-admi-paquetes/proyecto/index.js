@@ -2,14 +2,14 @@ const moment = require('moment')
 
 
 const hoy = moment()
-console.log(hoy) 
+logger.info(hoy) 
 const fechaNacimiento = moment('1996-07-13', 'YYYY-MM-DD')
-console.log(fechaNacimiento) 
+logger.info(fechaNacimiento) 
 
 if(fechaNacimiento.isValid()){
-    console.log(`Desde mi nacimiento han pasado ${hoy.diff(fechaNacimiento, 'years')} años`)
+    logger.info(`Desde mi nacimiento han pasado ${hoy.diff(fechaNacimiento, 'years')} años`)
 }else{
-    console.log('la fecha no es valida')
+    logger.info('la fecha no es valida')
 }
 
 

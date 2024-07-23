@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 router.post('/', async (req, res) => {
     
     const { first_name, last_name, email} = req.body
-    // console.log(first_name, last_name, email, password)
+    // logger.info(first_name, last_name, email, password)
     if(!email) return res.send({status: 'error', error: 'faltan campos'})
     // persistencia en memoria
     // const newUser = {

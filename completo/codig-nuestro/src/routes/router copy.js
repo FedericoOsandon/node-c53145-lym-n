@@ -24,7 +24,7 @@ class ClassRouter {
                 // req, res, next
                 await callback.apply(this, params)
             } catch (error) {
-                console.log(error)
+                logger.info(error)
                 // params[1] hace referencia a la res, por ello puedo mandar un send desde éste
                 params[1].status(500).send(error)
             }

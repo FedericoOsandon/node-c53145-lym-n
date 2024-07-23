@@ -1,1 +1,1 @@
-console.log('soy el script de home')
+logger.info('soy el script de home')

@@ -25,12 +25,12 @@ class TicketManager {
     agregarUsuario = (idEvento,idUsuario) =>{
         const eventoIndex= this.eventos.findIndex(e=>e.id===idEvento);
         if(eventoIndex===-1) {
-            console.log("Evento no encontrado");
+            logger.info("Evento no encontrado");
             return;
         }
         const usuarioRegistrado = this.eventos[eventoIndex].participantes.includes(idUsuario);
         if(usuarioRegistrado){
-            console.log("Usuario ya registrado");
+            logger.info("Usuario ya registrado");
             return;
         }
         this.eventos[eventoIndex].participantes.push(idUsuario);
@@ -38,7 +38,7 @@ class TicketManager {
     ponerEventoEnGira = (idEvento,nuevaLocalidad,nuevaFecha) =>{
         const eventoIndex = this.eventos.findIndex(e=>e.id===idEvento);
         if(eventoIndex===-1) {
-            console.log("Evento no encontrado");
+            logger.info("Evento no encontrado");
             return;
         }
         const evento = this.eventos[eventoIndex];
@@ -59,4 +59,4 @@ const manejadorEventos = new TicketManager();
 manejadorEventos.agregarEvento('Evento coder 1','Argentina',200,50);
 manejadorEventos.agregarUsuario(1,2);
 manejadorEventos.ponerEventoEnGira(1,'Mexico','30/11/2024');
-console.log(manejadorEventos.getEventos());
+logger.info(manejadorEventos.getEventos());

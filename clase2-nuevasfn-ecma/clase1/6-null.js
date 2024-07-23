@@ -7,8 +7,8 @@ let variablePrueba = false
 
 let prueba1 = variablePrueba || 'sin Valor'
 let prueba2 = variablePrueba??"sin valor"
-console.log(prueba1)
-console.log(prueba2)
+logger.info(prueba1)
+logger.info(prueba2)
 
 
 // propiedades privadada
@@ -34,5 +34,5 @@ class Persona {
 
 const persona = new Persona('John', 30)
 
-console.log(persona.getName())
+logger.info(persona.getName())
 

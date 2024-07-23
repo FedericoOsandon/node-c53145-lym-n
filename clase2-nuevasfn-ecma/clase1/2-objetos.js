@@ -14,7 +14,7 @@ let soloPropiedades = Object.keys(impuestos)
 
 let soloValores = Object.values(impuestos)
 
-console.log(soloValores.reduce( (sumaTotal, elemontosArray)=> sumaTotal += elemontosArray , 0)  )
+logger.info(soloValores.reduce( (sumaTotal, elemontosArray)=> sumaTotal += elemontosArray , 0)  )
 // foreach{
     // let sumador = 0
     // 

@@ -54,7 +54,7 @@ sessionsRouter.post('/register', async (req, res) => {
         res.send({status: 'success', token})
         
     } catch (error) {
-        console.log(error)
+        logger.info(error)
     }
 })
 
@@ -79,7 +79,7 @@ sessionsRouter.post('/login', async (req, res) => {
     //     admin: userFound.role === 'admin'
     // }
 
-    // console.log(req.session.user)
+    // logger.info(req.session.user)
     const token = generateToken({
         id: userFound._id,
         email,
@@ -96,7 +96,7 @@ sessionsRouter.post('/login', async (req, res) => {
 
 // sessionsRouter.get('/current', passport.authenticate('jwt', {session: false}), (req, res) => {
 sessionsRouter.get('/current', passportCall('jwt'), atuhorization('admin'), (req, res) => {
-    console.log(req.user)
+    logger.info(req.user)
     res.send('datos sensibles')
 })
 

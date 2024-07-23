@@ -33,15 +33,15 @@ const calculos = async () => {
         let numero1 = 5;
         let numero2 = 3;
         let resultSuma = await suma(numero1, numero2);
-        console.log(resultSuma);
+        logger.info(resultSuma);
         let resultResta = await resta(numero1, numero2);
-        console.log(resultResta);
+        logger.info(resultResta);
         let resultMultiplicacion = await multiplicacion(numero1, numero2);
-        console.log(resultMultiplicacion);
+        logger.info(resultMultiplicacion);
         let resultDivision = await division(numero1, numero2);
-        console.log(resultDivision);
+        logger.info(resultDivision);
     } catch (error) {
-        console.log(error);
+        logger.info(error);
     }
 }
 calculos();

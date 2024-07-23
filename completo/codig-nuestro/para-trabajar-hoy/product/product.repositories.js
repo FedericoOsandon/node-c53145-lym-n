@@ -8,7 +8,7 @@ class ProductRepositories { // UserServices
             objConfig.limit = objConfig.limit &&  parseInt(objConfig.limit)
             objConfig.page  = objConfig.page  && parseInt(objConfig.page)
             objConfig.sort  = objConfig.sort  && parseInt(objConfig.sort)
-            // console.log('objConfig: ',objConfig)
+            // logger.info('objConfig: ',objConfig)
             return await this.dao.get(objConfig)            
         } catch (error) {
             return error

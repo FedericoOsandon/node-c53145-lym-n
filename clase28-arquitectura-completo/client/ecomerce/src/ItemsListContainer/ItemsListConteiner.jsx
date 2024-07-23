@@ -11,7 +11,7 @@ export const ItemsListConteiner = () => {
             return result.payload          
             
         } catch (error) {
-            console.log(error)
+            logger.info(error)
         }
     }
 

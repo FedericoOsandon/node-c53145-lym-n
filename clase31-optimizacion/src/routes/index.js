@@ -31,7 +31,7 @@ router.use('/api/carts', cartsRouter)
 router.use('/api/sessions', sessionRouterClass.getRouter()) 
 
 router.use((error, req, res, next) => {
-    console.log(error)
+    logger.info(error)
     res.status(500).send('Error 500 en el server')
 })
 

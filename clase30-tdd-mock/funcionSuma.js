@@ -35,37 +35,37 @@ const suma = (...numeros) => {
 let testsPasados = 0
 let cantidadTest = 4
 
-console.log('Test 1: la funcón debe devolver null si algún parámetro es no numérico')
+logger.info('Test 1: la funcón debe devolver null si algún parámetro es no numérico')
 let resultTest1 = suma("2", 2)
 if(resultTest1 === null){
-    console.log('Test 1 pasó')
+    logger.info('Test 1 pasó')
     testsPasados++
-}else console.log(`Test 1 no pasó, ser recibió ${typeof resultTest1}, pero se esperaba null`)
-console.log('--------------------------------------------------------------------------------')
+}else logger.info(`Test 1 no pasó, ser recibió ${typeof resultTest1}, pero se esperaba null`)
+logger.info('--------------------------------------------------------------------------------')
 
-console.log('Test 2: la funcón debe devolver 0 si nno se pasó ningún parámetro')
+logger.info('Test 2: la funcón debe devolver 0 si nno se pasó ningún parámetro')
 let resultTest2 = suma()
 if(resultTest2 === 0){
-    console.log('Test 2 pasó')
+    logger.info('Test 2 pasó')
     testsPasados++
-}else console.log(`Test 2 no pasó, se recibió ${resultTest2} pero se esperaba 0`)
-console.log('--------------------------------------------------------------------------------')
+}else logger.info(`Test 2 no pasó, se recibió ${resultTest2} pero se esperaba 0`)
+logger.info('--------------------------------------------------------------------------------')
 
-console.log('Test 3: la funcón debe resolver la suma correctamente')
+logger.info('Test 3: la funcón debe resolver la suma correctamente')
 let resultTest3 = suma(3, 2)
 if(resultTest3 === 5){
-    console.log('Test 3 pasó')
+    logger.info('Test 3 pasó')
     testsPasados++
-}else console.log(`Test 3 no pasó, ser recibió ${resultTest3}, pero se esperaba 5`)
-console.log('--------------------------------------------------------------------------------')
+}else logger.info(`Test 3 no pasó, ser recibió ${resultTest3}, pero se esperaba 5`)
+logger.info('--------------------------------------------------------------------------------')
 
-console.log('Test 4: la funcón debe resolver cualquier cantidad de númneros')
+logger.info('Test 4: la funcón debe resolver cualquier cantidad de númneros')
 let resultTest4 = suma(1,2,3,4,5)
 if(resultTest4 === 15){
-    console.log('Test 4 pasó')
+    logger.info('Test 4 pasó')
     testsPasados++
-}else console.log(`Test 4 no pasó, ser recibió ${resultTest4}, pero se esperaba 15`)
-console.log('--------------------------------------------------------------------------------')
+}else logger.info(`Test 4 no pasó, ser recibió ${resultTest4}, pero se esperaba 15`)
+logger.info('--------------------------------------------------------------------------------')
 
-if(testsPasados === cantidadTest) console.log('Todos los test pasaron correctamente')
-else console.log(`Se pasó ${testsPasados}, de un total de ${cantidadTest}`)
+if(testsPasados === cantidadTest) logger.info('Todos los test pasaron correctamente')
+else logger.info(`Se pasó ${testsPasados}, de un total de ${cantidadTest}`)

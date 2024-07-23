@@ -7,10 +7,10 @@ const valoresBase = [1,2,3,4,5,6] //map -> [ 1**0, 2**1, 3**2]
 
 const valoresPotencia = valoresBase.map( (base, idx) => base**idx) //
 
-// console.log(valoresPotencia)
+// logger.info(valoresPotencia)
 
 // let nombre = [ 'Fede', 'Facu', 'Juan', 'Lucas']
-// console.log(nombre.includes('Juan'))
+// logger.info(nombre.includes('Juan'))
 
 // if(nombre.includes('juan')){
 //     return 'Si está Juan'

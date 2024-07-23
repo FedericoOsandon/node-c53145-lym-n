@@ -9,12 +9,12 @@ const fs = require('fs') // -> type common
 // fs.writeFileSync('./data.txt', 'esto es un contenidoñ\t asdfasdfasdf', 'utf-8')
 // fs.writeFileSync('./data.json', 'esto es un contenidoñ\t asdfasdfasdf', 'utf-8')
 
-// console.log(fs.existsSync('./data.txt'))
+// logger.info(fs.existsSync('./data.txt'))
 
 // leer un archivo
 // if (fs.existsSync('./data.txt')) {
 //     const archivo =  fs.readFileSync('./data.txt', 'utf-8')    
-//     console.log(archivo)
+//     logger.info(archivo)
 // }else{
 //     fs.writeFileSync('./data.txt', 'esto es un contenidoñ\t asdfasdfasdf', 'utf-8')
 // }

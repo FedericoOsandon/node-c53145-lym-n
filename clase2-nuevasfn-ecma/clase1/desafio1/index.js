@@ -21,7 +21,7 @@ objetos.forEach(objeto=>{
     keys.forEach(key=>{
         if(!newArray.includes(key)) newArray.push(key);
     })
-	// console.log(keys)
+	// logger.info(keys)
 })
 // 
-console.log(newArray);
+logger.info(newArray);

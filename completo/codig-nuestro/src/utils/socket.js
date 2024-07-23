@@ -7,12 +7,12 @@ initChatSocket = (io) => {
     let connectedClients = []
 
     io.on('connection', socket => {
-        // console.log('Nuevo cliente conectado')
+        // logger.info('Nuevo cliente conectado')
         connectedClients.push(socket)
-        console.log(`Cliente conectado. Total de clientes conectados: ${connectedClients.length}`)
+        logger.info(`Cliente conectado. Total de clientes conectados: ${connectedClients.length}`)
 
         socket.on('message', data => {
-            console.log('message',data)
+            logger.info('message',data)
             mensajes.push(data)
             io.emit('messageLogs', mensajes)
             // persisti 
@@ -25,7 +25,7 @@ initChatSocket = (io) => {
         
         socket.on('disconnect',()=>{
             connectedClients = connectedClients.filter((client) => client !== socket)
-            console.log(`Cliente desconectado. Total de clientes conectados: ${connectedClients.length}`)
+            logger.info(`Cliente desconectado. Total de clientes conectados: ${connectedClients.length}`)
         })
     })
 }
@@ -38,10 +38,10 @@ const initProductsSocket = (io) => {
         sort: 1
     }
     return io.on('connection', async socket =>{
-        // console.log(socket)
-        // console.log('Bienvenido a realtime product')
+        // logger.info(socket)
+        // logger.info('Bienvenido a realtime product')
         const {docs} = await productService.getProducts(config)
-        // console.log(docs)
+        // logger.info(docs)
         // const products = docs
         socket.emit('productsList', docs )
 
@@ -56,10 +56,10 @@ const initProductsSocket = (io) => {
                 category,
                 description
             })
-            // console.log(product)
-            if (!product) return console.log('Ocurrio un error al ingresar un producto')
+            // logger.info(product)
+            if (!product) return logger.info('Ocurrio un error al ingresar un producto')
             const {docs} = await productService.getProducts(config)
-            // console.log(docs)
+            // logger.info(docs)
             const products = docs
             io.sockets.emit('productsList', products)
         })

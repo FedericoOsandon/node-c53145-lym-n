@@ -55,7 +55,7 @@
 
     const renderProducts = async () => {
         const data = await getProducts()
-        console.log(data.payload)
+        logger.info(data.payload)
         data.payload.forEach(product => {
             products.push(product)
         })

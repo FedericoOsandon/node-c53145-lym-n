@@ -20,7 +20,7 @@ export class RouterClass {
             try {
                 await callback.apply(this, params)
             } catch (error) {
-                console.log(error)
+                logger.info(error)
                 params[1].status(500).send(error)
             }
         })

@@ -24,5 +24,5 @@
     // spread 
     
     // const obj3 = { ...obj2, ...obj1 }
-    // console.log(obj3)
+    // logger.info(obj3)
     

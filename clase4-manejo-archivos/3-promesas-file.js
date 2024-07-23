@@ -3,10 +3,10 @@ const fs = require('fs')
 
 // fs.promises.writeFile()
 // fs.writeFile('./data.txt', 'contenido', 'utf-8')
-// .then(()=> console.log('archivos escrito'))
-// .then(()=> console.log('archivos escrito'))
-// .then(()=> console.log('archivos escrito'))
-// .catch(error => console.log(error))
+// .then(()=> logger.info('archivos escrito'))
+// .then(()=> logger.info('archivos escrito'))
+// .then(()=> logger.info('archivos escrito'))
+// .catch(error => logger.info(error))
 
 // const writeFileFunction = async () => { 
 //     try {
@@ -17,10 +17,10 @@ const fs = require('fs')
 
 //         await fs.promises.unlink('./asinc-cb.txt')
 
-//         console.log(contenido)
+//         logger.info(contenido)
         
 //     } catch (error) {
-//         console.log(error.message)
+//         logger.info(error.message)
 //     }
 // }
 const writeFileFunction = async () => { 
@@ -41,11 +41,11 @@ const writeFileFunction = async () => {
         // const {nombreDelMejor, ...resto} = obj
         
         
-        console.log(contenidoParseado)
+        logger.info(contenidoParseado)
         await fs.promises.writeFile('./package.json', JSON.stringify(contenidoParseado, null, '\t'), 'utf-8')
         
     } catch (error) {
-        console.log(error.message)
+        logger.info(error.message)
     }
 }
 

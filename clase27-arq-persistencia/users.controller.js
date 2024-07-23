@@ -11,7 +11,7 @@ class UserController {
             const users = await this.userService.getUsers()                 
             res.send(users)            
         } catch (error) {
-            console.log(error)
+            logger.info(error)
         }
     }
 
@@ -26,7 +26,7 @@ class UserController {
     createUser = async (req, res) => {
     
         const { first_name, last_name, email, password } = req.body
-        // console.log(first_name, last_name, email, password)
+        // logger.info(first_name, last_name, email, password)
         if(!email) return res.send({status: 'error', error: 'faltan campos'})
         // persistencia en memoria
         // const newUser = {

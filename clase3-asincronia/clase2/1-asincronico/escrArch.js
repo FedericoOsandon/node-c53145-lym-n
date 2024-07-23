@@ -1,5 +1,5 @@
 module.exports = function escribirArchivo(texto, callback) {
-    console.log(texto)
+    logger.info(texto)
     setTimeout(()=>{
         callback()
     },0)

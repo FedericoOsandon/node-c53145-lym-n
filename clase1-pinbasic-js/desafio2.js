@@ -34,11 +34,11 @@ class Contador {
 // instanciar una clase -> crear un objeto
 const contador = new Contador('Federico')
 
-console.log(contador.getResponsable())
+logger.info(contador.getResponsable())
 contador.contar()
 contador.contar()
 contador.contar()
 
-console.log(contador.getContador())
-console.log(Contador.contadorGlobal)
+logger.info(contador.getContador())
+logger.info(Contador.contadorGlobal)
 

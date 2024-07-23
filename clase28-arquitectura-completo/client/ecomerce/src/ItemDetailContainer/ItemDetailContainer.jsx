@@ -14,7 +14,7 @@ export const ItemDetailContainer = () => {
         getProduct()
         .then(res  =>setProduct(res.payload))
     }, [])
-    console.log(product)
+    logger.info(product)
     return (
         <div>
             <h2>{product.title}</h2>

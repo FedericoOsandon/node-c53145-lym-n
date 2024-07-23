@@ -49,7 +49,7 @@ class ProductClass {
         
         // validar si no existe el producto
         let respuesta = await productService.createProduct(newProduct)
-        // console.log(respuesta)
+        // logger.info(respuesta)
         
         if (!respuesta) {
             return res.status(401).json({

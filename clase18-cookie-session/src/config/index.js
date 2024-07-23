@@ -63,17 +63,17 @@ const ordenes = [
   ]
 
 export const connectDb = async () => {
-    console.log('base de datos conectada')
+    logger.info('base de datos conectada')
     connect('mongodb://127.0.0.1:27017/c53145')
     // definir las operaciones 
     
     //insertar las órdenes
     // let result = await orderModel.insertMany(ordenes)
-    // console.log(result)
+    // logger.info(result)
     
     //solicitar las ordenes 
     // let orders = await orderModel.find({})
-    // console.log(result)
+    // logger.info(result)
     
     // aggregations stage -> pasos
     // const tamanio = 'small'
@@ -99,7 +99,7 @@ export const connectDb = async () => {
     //     }
     // ])
 
-    // console.log(result)
+    // logger.info(result)
 
 }
 

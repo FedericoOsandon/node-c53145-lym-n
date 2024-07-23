@@ -13,7 +13,7 @@ sessionsRouter.post('/login', (req, res) => {
         admin: true
     }
 
-    console.log(req.session.user)
+    logger.info(req.session.user)
     res.send('login success')
 })
 

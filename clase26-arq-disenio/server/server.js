@@ -48,8 +48,8 @@ app.use(routerApp)
 
 // Guardar en una cont
 httpServer.listen(port, error => {
-    if(error) console.log(error)
-    console.log('Server escuchando en el puerto ' + port)
+    if(error) logger.info(error)
+    logger.info('Server escuchando en el puerto ' + port)
 })
 
 sendMessage(io)

@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import {fork} from 'child_process'
-import { sendEmail } from '../../utils/sendMail.js'
-import { sendSms } from '../../utils/sendSms.js'
+// import { sendEmail } from '../../utils/sendMail.js'
+// import { sendSms } from '../../utils/sendSms.js'
 import { generateUser } from '../../utils/generateUsersMock.js'
 import compression from 'express-compression'
 
@@ -46,7 +46,7 @@ router.get('/stringmuylargo', (req, res) => {
 //         sendSms()
 //         res.send('Sms enviado')
 //     } catch (error) {
-//         console.log(error)
+//         logger.info(error)
 //     }
 // })
 
@@ -64,7 +64,7 @@ router.get('/stringmuylargo', (req, res) => {
 //         })
 //         res.send('Email enviado a su cassilla')
 //     } catch (error) {
-//         console.log(error)
+//         logger.info(error)
 //     }
 // })
 
@@ -110,7 +110,7 @@ router.get('/stringmuylargo', (req, res) => {
 // // router.get('/params/:word([a-zA-Z%C3%A1%C3%A9]+)', (req, res) => {
 // router.get('/params/:word([0-9]+)', (req, res) => {
 //     const {word} = req.params
-//     console.log(req.word)
+//     logger.info(req.word)
 //     res.send(word)
 // })
 

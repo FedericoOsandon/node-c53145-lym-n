@@ -14,7 +14,7 @@ class ViewsController {
     
     
             let users = [{email: 'fede@gmail.com', password:'fede', role: 'admin'}]
-            console.log('auth principal')
+            logger.info('auth principal')
             let testUser = {
                 name: 'Federico',
                 last_name: 'Osandón',
@@ -48,7 +48,7 @@ class ViewsController {
             const {cid} = req.params
             
             const cart = await cartService.getCart(cid)
-            console.log(cart.products)
+            logger.info(cart.products)
             res.render('cart', {
                 cart,
                 showNav: true
@@ -102,14 +102,14 @@ class ViewsController {
     }
     renderRealTimeProducts = async (req, res) => {
         try {
-            // console.log('realtime products')
+            // logger.info('realtime products')
             // return  res.send('realtime')
             // const products = await Product.getProducts()
             res.render('productsRealTime', {
                 showNav: true
             })
         } catch (error) {
-            console.log(error)
+            logger.info(error)
         }
     }
 }

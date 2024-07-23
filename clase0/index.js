@@ -1,7 +1,7 @@
-// console.log('fede')
-// console.log(1)
-// console.log(undefined)
-// console.log(null)
+// logger.info('fede')
+// logger.info(1)
+// logger.info(undefined)
+// logger.info(null)
 // console.table({a: 1, b: 2})
 
 // var apellido = 'Osandon'
@@ -12,25 +12,25 @@
 
 // let numero2 = numero
 
-// console.log(numero2)
+// logger.info(numero2)
 // numero2 = 2
 
-// console.log(numero)
-// console.log(numero2)
+// logger.info(numero)
+// logger.info(numero2)
 
-// console.log(typeof numero) // tipo de datos primitivos boolean Null Undifine
-// console.log(typeof nombre) // tipo de datos primitivos
-// console.log(typeof nombre2) // tipo de datos objeto -> array - function - 
+// logger.info(typeof numero) // tipo de datos primitivos boolean Null Undifine
+// logger.info(typeof nombre) // tipo de datos primitivos
+// logger.info(typeof nombre2) // tipo de datos objeto -> array - function - 
 
 // let objeto1 = { a: 1 }
 
 // let objeto2 = objeto1 
 
-// console.log(objeto2)
+// logger.info(objeto2)
 
 // objeto1.a = 2
 
-// console.log(objeto2)
+// logger.info(objeto2)
 
 
 // let nombre = "tiki"
@@ -39,21 +39,21 @@
 // let series = ["Stranger Things", "The Witcher"];
 // let peliculas = ["Inception", "Interstellar"];
 
-// console.log(nombre); 
-// console.log(edad); 
-// console.log(precio); 
-// console.log(series); 
-// console.log(peliculas); 
+// logger.info(nombre); 
+// logger.info(edad); 
+// logger.info(precio); 
+// logger.info(series); 
+// logger.info(peliculas); 
 
 // edad += 1; 
 // series.push("Black Mirror");
 
-// console.log(edad); 
-// console.log(series);
+// logger.info(edad); 
+// logger.info(series);
 
 { // un fn, obj - if  - for - etc 
     // var nombre = 'Fede'
     let nombre2 = 'Fede 2'
     const nombre3 = 'Feder 3'
 }
-console.log(nombre)
+logger.info(nombre)

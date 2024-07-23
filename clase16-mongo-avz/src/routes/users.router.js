@@ -9,7 +9,7 @@ const router = Router()
 router.get('/', async (req, res) => {
     // const users = await usersManager.getUsers()
     const users = await userModel.find({first_name: 'Celia'}).explain('executionStats') //-> []
-    console.log(users)
+    logger.info(users)
     res.send(users)
 })
 
@@ -17,7 +17,7 @@ router.get('/', async (req, res) => {
 // router.post('/', async (req, res) => {
     
 //     const { first_name, last_name, email} = req.body
-//     // console.log(first_name, last_name, email, password)
+//     // logger.info(first_name, last_name, email, password)
 //     if(!email) return res.send({status: 'error', error: 'faltan campos'})
 //     // persistencia en memoria
 //     // const newUser = {

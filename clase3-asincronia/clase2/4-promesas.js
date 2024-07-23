@@ -7,10 +7,10 @@
 // task // pendiente, cumplido, rechazado   
 //     .then(respuestaRes => {
 //         // throw new Error('simulacion ')
-//         console.log( respuestaRes)
+//         logger.info( respuestaRes)
 //         //f  fetch
 //     })
-//     .catch(err => console.log(err))
+//     .catch(err => logger.info(err))
 
 // lo de arriba no va
 
@@ -41,34 +41,34 @@ const dividirASyncAwait = async (dividendo, divisor)=> {
 //         return respuestaResolve * 3        
 //     })
 //     .then(resultado => resultado + 3 )
-//     .then(resultado2 => console.log(resultado2))
-//     .catch(err => console.log(err.msg))
+//     .then(resultado2 => logger.info(resultado2))
+//     .catch(err => logger.info(err.msg))
 
 async function empezarDividir () {
     try {
         let resultado = await dividir(2, 2) 
-        console.log(resultado * 1 + 3 )
+        logger.info(resultado * 1 + 3 )
         
     } catch (error) {
-        console.log(error)
+        logger.info(error)
     } 
 }  
 empezarDividir()
 
 // function funcA(){
-//     console.log("1")
+//     logger.info("1")
 //     funcB() // pausado hasta que funcB termine
-//     console.log("2")
+//     logger.info("2")
 // }
 
 // function funcB(){
-//     console.log("3")
+//     logger.info("3")
 //     funcC()
-//     console.log("4")
+//     logger.info("4")
 // }
 
 // function funcC(){
-//     console.log("5")
+//     logger.info("5")
 // }
 
 // funcA()

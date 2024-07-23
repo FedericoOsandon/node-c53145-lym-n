@@ -26,7 +26,7 @@ const { logger } = require("./src/middleware/logger.js")
 //     logger.info(`Me presento, soy un proceso worker con pid ${process.pid}`)
    
 // httpServer.listen(PORT,err =>{
-//     if (err)  console.log(err)
+//     if (err)  logger.info(err)
 //     logger.info(`Escuchando en el puerto ${httpServer.address().port }`)
 // })
     initServer()

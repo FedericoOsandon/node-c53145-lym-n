@@ -18,7 +18,7 @@
         evt.preventDefault()
         let email = document.querySelector('input[name="email"]').value
         let password = document.querySelector('input[name="password"]').value
-        //console.log(email, password)
+        //logger.info(email, password)
         fetch('/session/login',{
             method: 'POST',
             headers: {
@@ -31,7 +31,7 @@
         })
         .then(resp => resp.json())
         .then(resp => {
-            //console.log(resp.cid)
+            //logger.info(resp.cid)
             if(resp.status === 'success'){
                 localStorage.setItem('cid',resp.cid)
                 localStorage.setItem('token',resp.token)

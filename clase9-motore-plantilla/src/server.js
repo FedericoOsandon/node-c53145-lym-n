@@ -36,12 +36,12 @@ app.use('/api/users', usersRouter)
 app.use('/api/products', productsRouter)
 
 app.use((error, req, res, next) => {
-    console.log(error)
+    logger.info(error)
     res.status(500).send('Error 500 en el server')
 })
 
 app.listen(8080, error => {
-    if(error) console.log(error)
-    console.log('Server escuchando en el puerto 8080')
+    if(error) logger.info(error)
+    logger.info('Server escuchando en el puerto 8080')
 })
 

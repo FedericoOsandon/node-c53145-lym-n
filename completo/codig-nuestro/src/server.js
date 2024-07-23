@@ -56,7 +56,7 @@ initProductsSocket(io)
     
 const initServer = async () => {
     return await httpServer.listen(PORT,err =>{
-        if (err)  console.log(err)
+        if (err)  logger.info(err)
         logger.info(`Escuchando en el puerto ${PORT}`)
     })
 }

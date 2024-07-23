@@ -34,7 +34,7 @@
     })
     .then(result => {
         user = result.value
-        console.log(user)
+        logger.info(user)
     })
 
     // input del chat
@@ -50,7 +50,7 @@
     })
 
     socket.on('messageLogs', data => {
-        //console.log('Mensajes del server', data)
+        //logger.info('Mensajes del server', data)
         let log = document.getElementById('messageLog')
 
         let messages = ''

@@ -9,8 +9,8 @@ import { Server } from 'socket.io'
 const app = express()
 // Guardar en una cont
 const httpServer = app.listen(8080, error => {
-    if(error) console.log(error)
-    console.log('Server escuchando en el puerto 8080')
+    if(error) logger.info(error)
+    logger.info('Server escuchando en el puerto 8080')
 })
 // creamos el socket server
 const socketServer = new Server(httpServer)
@@ -31,10 +31,10 @@ app.use('/', viewsRouter)
 
 
 socketServer.on('connection', socket => {
-    console.log('nuevo cliete conectado')
+    logger.info('nuevo cliete conectado')
 
     // socket.on('message', data => {
-    //     console.log(data)
+    //     logger.info(data)
     // })
 
     // socket.emit('socket_individual', 'Este mensaje lo debe ecibir este los socket')
@@ -48,7 +48,7 @@ socketServer.on('connection', socket => {
     // enviar mensajes viejos
 
     socket.on('mensaje_cliente', data => {
-        console.log(data)
+        logger.info(data)
 
         messages.push({id: socket.id, messge: data})
         

@@ -7,7 +7,7 @@ class CartService {
     async getCarts(){
         try {
             let res = await this.cartDao.get()
-            console.log(res)
+            logger.info(res)
             return res
         } catch (error) {
             return new Error(error)

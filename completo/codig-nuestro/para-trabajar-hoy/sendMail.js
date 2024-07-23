@@ -33,7 +33,7 @@ const attachments = [
 ]
 
 const sendMail = async ({subject='', html='', attachments}) => {
-    console.log(subject, html, attachments)
+    logger.info(subject, html, attachments)
     
     return await transport.sendMail({
         from:'Servicio de Node <defe014@gmail.com>',

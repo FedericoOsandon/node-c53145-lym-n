@@ -26,7 +26,7 @@ let persona = arrayPersonas.find(persona => {
     test = persona.id === 3
     return test
 })
-console.log(persona)
+logger.info(persona)
 
 // let i  = 0
 
@@ -34,8 +34,8 @@ console.log(persona)
 //     i=1
 //     let j = 2
 //     if (true) {
-//         console.log(i)
-//         console.log(j)
+//         logger.info(i)
+//         logger.info(j)
 //     }
 // }
 // foo()
@@ -45,9 +45,9 @@ console.log(persona)
     
 //     if (true) {
 //         let i = 1
-//         console.log(i)
+//         logger.info(i)
 //     }
-//     console.log(i)
+//     logger.info(i)
 // }
 // foo1()
 
@@ -55,7 +55,7 @@ console.log(persona)
 //     if (true) {
 //         let i = 1        
 //     }
-//     console.log(i)
+//     logger.info(i)
 // }
 // foo2()
 
@@ -71,7 +71,7 @@ console.log(persona)
 // const user = {name: 'Fede'}
 // user.name = 'Juan'
 
-// console.log(user)
+// logger.info(user)
 
 
 //funciones _______________________________________________________________
@@ -110,7 +110,7 @@ console.log(persona)
 //     return saludo
 // }
 
-// console.log(saludo)
+// logger.info(saludo)
 
 // template String
 

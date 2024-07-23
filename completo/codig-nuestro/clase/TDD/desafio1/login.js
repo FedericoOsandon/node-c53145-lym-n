@@ -3,19 +3,19 @@ function login(user, password) {
     const hardcodedPassword = '123';
 
     if (password === '') {
-        console.log('No se ha proporcionado un password');
+        logger.info('No se ha proporcionado un password');
     } 
     if (user === '') {
-        console.log('No se ha proporcionado un usuario');
+        logger.info('No se ha proporcionado un usuario');
     } 
     if (user !== hardcodedUser) {
-        console.log('Credenciales incorrectas');
+        logger.info('Credenciales incorrectas');
     }
     if (password !== hardcodedPassword) {
-        console.log('Contraseña incorrecta');
+        logger.info('Contraseña incorrecta');
     } 
   
-    console.log('logueado');
+    logger.info('logueado');
   
 }
 

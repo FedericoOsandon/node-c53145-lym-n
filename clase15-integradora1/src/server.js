@@ -29,6 +29,6 @@ app.use('/api/users', usersRouter)
 
 
 app.listen(PORT, err => {
-    if (err) console.log('Error: ', err)
-    console.log(`listener on port: ${PORT}`)
+    if (err) logger.info('Error: ', err)
+    logger.info(`listener on port: ${PORT}`)
 })

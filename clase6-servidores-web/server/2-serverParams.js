@@ -3,9 +3,9 @@ const express = require('express')
 const app = express()
 
 app.get('/productdetail/:pid', (req, res)=>{
-    console.log('parametro: ', req.params)
-    // console.log(req.query)
-    // console.log(req.body)
+    logger.info('parametro: ', req.params)
+    // logger.info(req.query)
+    // logger.info(req.body)
     res.send('bienvenidos al server') // manda al cliente esta resp un string biebn......
 })
 app.get('/nombre/:nombre/:apellido', (req, res) => {
@@ -18,5 +18,5 @@ app.get('/despedida', (req, res) => {
 })
 
 app.listen(8080, error => {
-    console.log('Escuchando el puerto 8080')
+    logger.info('Escuchando el puerto 8080')
 })

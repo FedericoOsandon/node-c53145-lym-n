@@ -9,13 +9,13 @@ class UserController {
         try {  
             const { limit=5, page=1 }= req.query            
             const result = await userService.getUsers(parseInt(limit), parseInt(page))   
-            // console.log(result)         
+            // logger.info(result)         
             res.status(200).send({
                 status: 'success',
                 payload: result
             })
         } catch (error) {
-            console.log(error) 
+            logger.info(error) 
         }
     }
 
@@ -28,7 +28,7 @@ class UserController {
                 payload: result
             })            
         } catch (error) {
-            console.log(error)
+            logger.info(error)
         }
     }
 
@@ -37,7 +37,7 @@ class UserController {
         try {
             let {nombre, apellido, email } = req.body
             if (!nombre || !apellido || !email) {
-                // console.log( new Error('Che pasar todos los datos', {causa: 'opcional'}))
+                // logger.info( new Error('Che pasar todos los datos', {causa: 'opcional'}))
                 CustomError.createError({
                     name: 'User creation error',
                     cause: generateUserErrorInfo({
@@ -84,8 +84,8 @@ class UserController {
                 status: 'error',
                 error: `El usuario no ha terminado de procesar su documentación. Falta ${3 - user.documents.length} documento.` })
             }
-            // console.log(user)
-            // console.log(user.documents.length)
+            // logger.info(user)
+            // logger.info(user.documents.length)
             // Actualizar al usuario a premium
             user.isPremium = true
             await user.save()
@@ -96,7 +96,7 @@ class UserController {
                 documentsLength: user.documents.length
             })
         } catch (error) {
-            console.log(error)
+            logger.info(error)
         }       
     }
 
@@ -105,7 +105,7 @@ class UserController {
             const { uid } = req.params
             // const { name } = req.body;
             const files = req.files
-            console.log(files.length)
+            logger.info(files.length)
             // Validar si se cargaron los documentos requeridos
             // if (!files || (files.length < 3)) {
             if (!files) {
@@ -119,7 +119,7 @@ class UserController {
             if (!user) {
               return res.status(404).json({ error: 'Usuario no encontrado.' })
             }
-            console.log(user)
+            logger.info(user)
         
             // Actualizar el usuario con los nuevos documentos y referencias generadas
             user.documents = user.documents || []

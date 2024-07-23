@@ -10,7 +10,7 @@ function crearContador() {
   
     return () =>  {
       contador++;
-      console.log(contador);
+      logger.info(contador);
     }
   
    

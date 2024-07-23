@@ -8,11 +8,11 @@ export class MongoSingleton {
 
     static getInstance(){
         if(this.#instance){
-            console.log('base de datos ya esta conectada')
+            logger.info('base de datos ya esta conectada')
             return this.#instance
         }
         this.#instance = new MongoSingleton()
-        console.log('base de datos conectada')
+        logger.info('base de datos conectada')
         return this.#instance
     }
 }

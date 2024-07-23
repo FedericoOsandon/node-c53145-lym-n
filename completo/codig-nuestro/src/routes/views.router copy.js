@@ -17,7 +17,7 @@ const products = [
 
 router.get('/inicio', async (req, res)=>{    
     try {
-        console.log('auth principal')
+        logger.info('auth principal')
         let testUser = {
             name: 'Federico',
             last_name: 'Osandón',
@@ -99,14 +99,14 @@ router.get('/register', async (req, res)=>{
 
 router.get('/realtimeproducts', async (req, res) => {
     try {
-        // console.log('realtime products')
+        // logger.info('realtime products')
         // return  res.send('realtime')
         // const products = await Product.getProducts()
         res.render('productsRealTime', {
             showNav: true
         })
     } catch (error) {
-        console.log(error)
+        logger.info(error)
     }
 })
 

@@ -5,7 +5,7 @@ const { config: {jwt_private_key} } = require('../config/config')
 
 // crear la funcion que genera el token llamada generateToken
 const generateToken = ({user={}, expiresIn='24'}) => {
-    // console.log(user)
+    // logger.info(user)
     const token = jwt.sign(user, jwt_private_key, {expiresIn})
     return token
 }

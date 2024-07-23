@@ -36,7 +36,7 @@
 
 // objetos.forEach( objeto => {
 //     let propiedades = Object.keys(objeto)
-//     console.log(propiedades)
+//     logger.info(propiedades)
 
 // })
 // Emiliano
@@ -78,4 +78,4 @@ for (const obj of objetos) {
     }
 }
 
-console.log(productos)
+logger.info(productos)

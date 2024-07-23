@@ -1,7 +1,7 @@
 import { Router } from 'express'
 import {fork} from 'child_process'
 import { sendEmail } from '../../utils/sendMail.js'
-import { sendSms } from '../../utils/sendSms.js'
+// import { sendSms } from '../../utils/sendSms.js'
 
 const router = Router()
 
@@ -13,10 +13,10 @@ router.get('/sms', async (req, res)=>{
             last_name: 'Osandón',
             email: 'projectodigitalgen@gmail.com',
         }
-        sendSms()
+        // sendSms()
         res.send('Sms enviado')
     } catch (error) {
-        console.log(error)
+        logger.info(error)
     }
 })
 
@@ -34,7 +34,7 @@ router.get('/mail', async (req, res)=>{
         })
         res.send('Email enviado a su cassilla')
     } catch (error) {
-        console.log(error)
+        logger.info(error)
     }
 })
 

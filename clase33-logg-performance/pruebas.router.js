@@ -35,12 +35,13 @@ router.get('/compleja', (req, res) => {
     res.send(`La suma es ${sum}`)
 })
 
-router.get('/log', (req, res) => {
+router.get('/loggetest', (req, res) => {
     // req.logger.warning('Alerta!!')
     // req.logger.fatal('Alerta!!')
     req.logger.error('Alerta!!')
     res.send('logs')
 })
+
 
 
 export default router

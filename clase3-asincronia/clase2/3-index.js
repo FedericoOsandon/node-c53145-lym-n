@@ -1,8 +1,8 @@
 const operacion = (numero1, numero2, cb )=> {
 
     /// acciones 
-    console.log(numero1)
-    console.log(numero2)
+    logger.info(numero1)
+    logger.info(numero2)
 
     return cb(false, numero1, numero2)
 }
@@ -14,7 +14,7 @@ const div = (err, num1, num2)=> err === null ? num1 / num2 : 'no se puede dividi
 
 // ej
 
-// console.log(operacion( 1,2, suma ))
-// console.log(operacion( 1,2, resta ))
-// console.log(operacion( 1,2, mult ))
-console.log(operacion( 1,0, div ))
+// logger.info(operacion( 1,2, suma ))
+// logger.info(operacion( 1,2, resta ))
+// logger.info(operacion( 1,2, mult ))
+logger.info(operacion( 1,0, div ))

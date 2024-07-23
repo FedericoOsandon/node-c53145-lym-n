@@ -12,7 +12,7 @@ export const initializePassport = () => {
     callbackURL: 'http://localhost:8080/api/sessions/githubcallback'
    }, async (accesToken, refreshToken, profile, done)=>{
     try {
-        console.log(profile)
+        logger.info(profile)
         let user  = await userService.getUserBy({email: profile._json.email})
         // no existe el usuario en nuestra base de datos
         if(!user){

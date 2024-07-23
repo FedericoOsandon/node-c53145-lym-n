@@ -28,9 +28,9 @@ app.get('/api/users', async (req, res) => {
 
 // enpoint para crear un usuario
 app.post('/api/users', (req, res) => {
-    console.log(req.body)
+    logger.info(req.body)
     const { first_name, last_name, email, password} = req.body
-    // console.log(first_name, last_name, email, password)
+    // logger.info(first_name, last_name, email, password)
     if(!email || !password) return res.send({status: 'error', error: 'faltan campos'})
 
     const newUser = {
@@ -89,6 +89,6 @@ app.delete('/api/users/:uid', (req, res) => {
 // app.delete('/api/products/:pid', (req, res) => {})
 
 app.listen(8080, error => {
-    if(error) console.log(error)
-    console.log('Server escuchando en el puerto 8080')
+    if(error) logger.info(error)
+    logger.info('Server escuchando en el puerto 8080')
 })

@@ -3,7 +3,7 @@ const array = [1,2,3,4,5,6]
 
 let newArray = array.map(x => x*2)
 
-console.log(newArray)
+logger.info(newArray)
 
 
 // const funcionCallback = (num) => { 
@@ -24,7 +24,7 @@ function callback (num) {
 
 const newArray2 = array.map( callback )
 
-console.log(newArray)
+logger.info(newArray)
 
 
 ///___________________________________________________________________________

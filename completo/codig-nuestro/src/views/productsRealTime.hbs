@@ -48,7 +48,7 @@
         socket.on('productsList', data =>{
             let productsList = document.querySelector('#products-list')
             let html=""
-            console.log(data)
+            logger.info(data)
             if(data.length === 0) html='<h2>No hay produtos</h2>'
             
             data.forEach(product => {
@@ -74,7 +74,7 @@
             const category = form.elements.category.value
             const description = form.elements.description.value
 
-            // console.log({title, price, category})
+            // logger.info({title, price, category})
            
             socket.emit('addProduct', { 
                 title, 

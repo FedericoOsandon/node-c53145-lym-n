@@ -27,5 +27,5 @@ app.get('/users/:uid', (req, res) => {
 
 
 app.listen(8080, error => {
-    console.log('Escuchando el puerto 8080')
+    logger.info('Escuchando el puerto 8080')
 })

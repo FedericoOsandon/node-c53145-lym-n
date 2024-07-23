@@ -2,18 +2,18 @@
 
 // setTimeout( () => {
 //     // acciones 
-//     console.log('2 accion')
+//     logger.info('2 accion')
 // })
 
 // setInterval(function(){
-//     console.log('2 accion')
+//     logger.info('2 accion')
 // }, 1000)
 
 let contando = () => {
     let contador = 1
-    console.log('2 acción')
+    logger.info('2 acción')
     let timer = setInterval(()=>{
-        console.log(contador++)
+        logger.info(contador++)
         if(contador>5){
             clearInterval(timer)
         }
@@ -22,6 +22,6 @@ let contando = () => {
 
 
 
-console.log('1 acción')
+logger.info('1 acción')
 contando()
-console.log('3 acción')
+logger.info('3 acción')

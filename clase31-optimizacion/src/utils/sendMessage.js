@@ -3,10 +3,10 @@ export const sendMessage = (io) => {
     // manager chat - productos 
     // socketServer -> io 
     io.on('connection', socket => {
-        console.log('Cliente conectado')
+        logger.info('Cliente conectado')
     
         socket.on('message', data => {
-            console.log('message data: ', data)
+            logger.info('message data: ', data)
             // guardamos los mensajes
             messages.push(data)
             // emitimos los mensajes

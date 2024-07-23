@@ -11,7 +11,7 @@ class MongoSingleton {
             useNewUrlParser: true,
             useUnifiedTopology: true
         })
-        // .then(() => console.log('conectado a la base de datos'))
+        // .then(() => logger.info('conectado a la base de datos'))
         .catch(err => logger.error(err))
     }
 

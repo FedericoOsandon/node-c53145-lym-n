@@ -44,7 +44,7 @@ class UserRouter extends Router {
         //         email: req.body.email,
         //         role: 'user'
         //     }
-        //     console.log(user)
+        //     logger.info(user)
             
         //     let token = jwt.sign(user, 'CoderSecretClassRouter')
         //     res.sendSuccess({token})
