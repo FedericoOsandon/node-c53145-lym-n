@@ -1,0 +1,9 @@
+POST http://localhost:8080/api/users
+Content-Type: application/json
+
+{
+    "first_name": "Fede",
+    "last_name": "Osandón",
+    "email": "f@gmial.com",
+    "password": "123456"
+}
