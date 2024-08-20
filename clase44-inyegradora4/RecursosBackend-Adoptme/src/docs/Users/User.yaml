@@ -1,0 +1,75 @@
+paths: 
+  /api/users/:
+    get: 
+      summary: Obtiene todos los users
+      tags: 
+        - Users
+      responses: 
+        "200":
+          description: Los usuarios fueron obtenidos correctamente
+          content: 
+            application/json:
+              schema: 
+                items:
+                  $ref: '#/components/schemas/Users'
+    post:
+      summary: Crea un usuario nuevo
+      tags: 
+        - Users
+      requestBody:
+        required: true
+        content: 
+          application/json:
+            schema: 
+              $ref: '#/components/requestBodies/createUser'
+      responses:
+        "201":
+          description: 'El usuario fue creado correctamente' 
+
+components: 
+  schemas:
+    Users: 
+      type: object
+      properties:
+        _id:
+          type: string
+          description: id autogenerado por mongo
+        first_name:
+          type: string
+          description: Nombre del usuarioo
+        last_name:
+          type: string
+          description: Apellido del usuarioo
+        email:
+          type: string
+          description: email del usuarioo
+        password:
+          type: string
+          description: password del usuarioo
+      example: 
+        _id: OBjectId('jafslf.asdjfkasfñas.f-asfjasdfasd321asfd')
+        first_name: Federico
+        last_name: Osandón
+        email: f@gmail.com 
+        password: $afsñldfasf.1afsdfas.asf4$asldfas&aklsfdfsafalñsf.fasdfjalfjlasjdf
+  requestBodies: 
+    createUser:
+      type: object
+      properties: 
+        first_name:
+          type: string
+          description: Nombre del usuarioo
+        last_name:
+          type: string
+          description: Apellido del usuarioo
+        email:
+          type: string
+          description: email del usuarioo
+        password:
+          type: string
+          description: password del usuarioo
+      example:
+        first_name: Federico
+        last_name: Osandón
+        email: f@gmail.com 
+        password: '123456'
